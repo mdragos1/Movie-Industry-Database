@@ -290,7 +290,7 @@ insert into locatie
 values (3005, 'Central Park',12);
 
 insert into critic
-values(1, 'André Bazin','18-APR-1918');
+values(1, 'Andr? Bazin','18-APR-1918');
 insert into critic
 values(2, 'Roger Ebert','18-JUN-1942');
 insert into critic
@@ -465,6 +465,13 @@ drop column data_nastere;
 
 
 --exercitiul 13
+create sequence actor_id_seq
+    minvalue 1
+    maxvalue 99999
+    start with 1
+    increment by 1
+    nocycle;
+
 
 create table ACTOR(
     id_actor int not null,
@@ -477,6 +484,9 @@ create table ACTOR(
     foreign key (id_manager)
     references MANAGER(id_manager) on delete cascade
 );
+
+insert into actor
+values (actor_id_seq.nextval,1002,'Robbie', 'Margot', 'femeie');
 
 
 --exercitiul 14

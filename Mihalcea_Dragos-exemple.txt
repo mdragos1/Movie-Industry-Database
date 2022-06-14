@@ -68,6 +68,12 @@ drop column data_nastere;
 
 
 --exercitiul 13
+create sequence actor_id_seq
+    minvalue 1
+    start with 1
+    increment by 1
+    nocycle;
+    
 
 create table ACTOR(
     id_actor int not null,
@@ -78,8 +84,10 @@ create table ACTOR(
     constraint gen_chk check (gen = 'barbat' or gen = 'femeie'),
     primary key (id_actor),
     foreign key (id_manager)
-    references MANAGER(id_manager) on delete cascade
-);
+    references MANAGER(id_manager) on delete cascade);
+
+insert into actor
+values (actor_id_seq.nextval,1002,'Robbie', 'Margot', 'femeie');
 
 
 --exercitiul 14
